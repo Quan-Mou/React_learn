@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div id="app"></div>
+
+  <!-- react依赖 -->
+  <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <!-- 编写react代码 type格式必须是text/babel 作用是让babel解析jsx语法 -->
+  <script type="text/babel">
+
+    // 封装组件  
+    class App extends React.Component {
+      // 在类里面定义属性
+      constructor() {
+        super();  // 必须调用一下super
+        // this.message = "Hello World";
+        this.state = {
+          message: "Hello World"
+        }
+      }
+
+      // 组件里面的内容渲染render里面
+      render() {
+        // return <h2>Hello</h2> 如果只有一个根可以不用加括号，如果有多个可以加，这里的()没别的含义，仅代表它们是一个整体
+        return (
+          <div>
+            <h2>{this.state.message}</h2>
+            <button onClick={this.btnClick.bind(this)}>改变文字</button>
+          </div>
+        )
+      }
+
+      btnClick() {
+        // console.log(this);
+        // this.message = "Hello React";  // 不行！！ 不要手动去改 
+        this.setState({
+          message: "Hello React"
+        });
+
+        // this.state里面定义数据，通过this.setState去改变数据
+      }
+    }
+
+    // 渲染组件
+    ReactDOM.render(<App />, document.getElementById('app')); // 组件名首字母必须大写
+  </script>
+</body>
+
+</html>

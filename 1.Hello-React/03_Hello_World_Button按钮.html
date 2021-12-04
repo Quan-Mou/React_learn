@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div id="app"></div>
+
+  <!-- react依赖 -->
+  <!-- crossorigin的作用是远程的文件里面的错误在本地也能显示出来 -->
+  <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <!-- 编写react代码 type格式必须是text/babel 作用是让babel解析jsx语法 -->
+  <script type="text/babel">
+    let message = "Hello World";
+
+    function btnClick() {
+      message = "Hello React";
+      render();
+    }
+
+    // 这里和vue一样，最外部必须是一个根元素
+    function render() {
+      ReactDOM.render(
+        <div>
+          <h2>{message}</h2>
+          <button onClick={btnClick}>按钮</button>
+        </div>,
+        document.getElementById('app')
+      );
+    }
+
+    //点击后数据改了，但是页面并没有发生改变，这里要重新渲染dom
+
+    render();
+  </script>
+</body>
+
+</html>

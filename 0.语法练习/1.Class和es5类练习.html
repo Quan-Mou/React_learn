@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 1.es5创建类（构造函数） 
+    function Person(name, age, sex) {
+      // 添加属性
+      this.name = name;
+      this.age = age;
+      this.sex = sex;
+      this.skill2 = function () {
+        console.log('三十二变');
+      }
+    }
+    // 添加方法：（原型上添加）
+    Person.prototype.skill1 = function () {
+      console.log('七十二变');
+    }
+
+    const p = new Person('权', 17, '男');
+    console.log(p.name);
+    console.log(p.age);
+    console.log(p.sex);
+    p.skill1();
+    p.skill2();
+    console.log("---------------------------");
+
+    // 2.es6通过Class关键字创建类
+    class Equip {
+      // 构造方法
+      constructor(name, age, sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+      }
+
+      // 定义方法
+      running() {
+        console.log(this); // 这个对象
+        console.log(this.name);
+        console.log(this.age);
+      }
+
+    }
+    const p2 = new Equip('Curry', 32, '男');
+    p2.running();
+
+    class student extends Equip {
+      constructor() {
+
+      }
+      message() {
+        console.log(this);
+      }
+    }
+    const p3 = new student();
+    console.log(p3);
+    p3.running();
+    console.log(p3.prototype);
+
+  </script>
+</body>
+
+</html>

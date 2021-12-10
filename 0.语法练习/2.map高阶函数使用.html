@@ -1,3 +1,9 @@
+<!--
+ * @Description: 
+ * @Date: 2021-12-04 10:38:17
+ * @LastEditTime: 2021-12-04 11:33:47
+ * @FilePath: \react\0.语法练习\2.map高阶函数使用.html
+-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +16,19 @@
 
 <body>
   <script>
-
+    // map函数
+    let arr = ["张三", "李四", "王五", "李六"];
+    /**
+     * 里面是一个回调函数有三个参数
+     * 第一个参数是当前元素
+     * 第二个参数是对应的索引值
+     * 第三个参数是整个数组对象
+     * */
+    // 例如我们给每个数组元素后面加上000
+    const NewsArr = arr.map((item) => {
+      return item + "000";
+    })
+    console.log(NewsArr);
   </script>
 </body>
 

@@ -1,0 +1,105 @@
+<!--
+ * @Description: 
+ * @Date: 2021-12-08 13:11:59
+ * @LastEditTime: 2021-12-10 13:38:58
+ * @FilePath: \react\2.JSX核心语法\03.JSX核心语法.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <script type="text/babel">
+
+    class App extends React.Component {
+      constructor() {
+        super();
+        this.state =
+        {
+          user: {
+            firstName: 'Harper',
+            lastName: 'Perez'
+          },
+
+          //1.在{}里可以正常显示的变量 
+          name: '权某人', // Sring
+          age: 17, // Number
+          channel: ["少儿", "卡通", "动漫", "精英"], // Array
+
+          // 2.在{}里不可以正常显示的
+          flag: false, // Boolean
+          demo1: null,// null
+          demo2: undefined, // undefined
+          youInfo: {
+            name: "某某某",
+            age: 18
+          }
+        }
+      }
+
+      formatName(user) {
+        console.log(this);
+        return user.firstName + ' ' + user.lastName;
+
+      }
+
+      Add(num1, num2) {
+        return num1 + num2;
+      }
+
+      render() {
+        {/*对象结构:*/ }
+        const { user, channel } = this.state;
+        return (
+          <div>
+            <h3>Hello {this.formatName(this.state.user)}</h3>
+            {/*1.这是JSX的注释*/}
+            {/*<h2>哈哈哈</h2>*/}
+
+            {/* 2.JSX嵌入变量 */}
+            <h3>{this.state.name}</h3>
+            <h3>{this.state.age}</h3>
+            <h3>{this.state.channel}</h3>
+
+            {/*这些不能正常显示,如果要强制让它显示的话，，可以通过 1.toString()undefined和NaN,Null没有这个方法；2. 通过String()函数强制类型转换3.+''拼接的方式隐式转换*/}
+            <h4>{this.state.flag.toString()}</h4>
+            <h4>{this.state.demo1 + ''}</h4>
+            <h4>{this.state.demo2}</h4>
+            {/*不可以直接把一个对象放在子类里*/}
+            {/*<h3>{this.state.youInfo}</h3>*/}
+
+            {/*3.JSX嵌入表达式*/}
+            {/*1.运算表达式*/}
+            <h6>{10 * 35}</h6>
+
+            {/*2.三目运算符*/}
+            <h6>{this.state.flag ? "登录成功" : "请登录啊"}</h6>
+
+            {/*3.函数调用*/}
+            <h6>{this.Add(this.state.age, this.state.youInfo.age)}</h6>
+            <hr />
+
+            {/*上面大量重复使用了this.state,可以使用对象解构的方式来进行单独拿出*/}
+            <h2>{user.firstName}</h2>
+            <h2>{channel}</h2>
+          </div>
+        )
+      }
+    }
+
+    ReactDOM.render(<App />, document.getElementById("root"));
+  </script>
+</body>
+
+</html>

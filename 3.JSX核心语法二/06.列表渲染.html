@@ -1,0 +1,80 @@
+<!--
+ * @Description: 
+ * @Date: 2021-12-29 23:13:35
+ * @LastEditTime: 2021-12-29 23:51:39
+ * @FilePath: \react\3.JSX核心语法二\06.列表渲染.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script type="text/babel">
+    class App extends React.Component {
+      constructor() {
+        super();
+        this.state = {
+          arrStr: ['abc', 'cba', 'bcb', 'nba', 'aaa'],
+          arrNumber: [20, 50, 1, 234, 34, 55, 9, 100, 33, 53]
+        }
+      }
+      render() {
+        return (
+          <div>
+            <h2>列表1</h2>
+            <ul>
+              {
+                this.state.arrStr.map(item => {
+                  return <li>{item}</li>
+                })
+              }
+            </ul>
+            {/*如果有一种需求，在一个数组10个元素，只取到大于10的数，或者只取前4个元素*/}
+            <h2>数字列表(1.过滤大于10的数)</h2>
+            <ul>
+              {
+                this.state.arrNumber.filter((item) => {
+                  return item > 10;
+                }).map(val => {
+                  return <li>{val}</li>
+                })
+              }
+
+            </ul>
+            <h2>数字列表(2.过滤大于10的数)</h2>
+            <ul>
+              {/*上面的1.过滤可以改：*/}
+              {
+                this.state.arrNumber.filter(item => item > 10).map(item => <li>{item}</li>)
+              }
+            </ul>
+
+            <h2>数字列表（截取）</h2>
+            <ul>
+              {
+                this.state.arrNumber.splice(0, 4).map(item => {
+                  return <li>{item}</li>
+                })
+              }
+            </ul>
+          </div>
+        )
+      }
+    }
+    ReactDOM.render(<App />, document.getElementById("app"));
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="app">
+
+    </div>
+    <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+      class App extends React.Component {
+        constructor() {
+          super();
+          this.state = {
+            books: ["灵魂的事", "草房子", "周易六十四卦", "你的孤独，虽败犹荣"]
+
+          }
+        }
+        render() {
+          return (
+            <div>
+              <button onClick={this.btnClick}>点击了</button>
+              <ul>
+                {
+                  this.state.books.map((item, index, obj) => {
+                    return <li onClick={() => { this.liClick(item, index, obj, event) }}>{item}</li>
+                  })
+                }
+              </ul>
+            </div>
+          )
+        }
+        // 事件里面浏览器封装了一个事件对象，event，里面可以查看它的一些属性（比如点击的位置，坐标等）
+        liClick(item, idx, obj, event) {
+          console.log(item, idx, obj, event);
+        }
+
+        btnClick(e) {
+          console.log(e);
+        }
+      }
+      ReactDOM.render(<App />, document.getElementById("app"));
+    </script>
+  </body>
+
+  </html>

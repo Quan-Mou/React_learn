@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <script type="text/babel">
+    class App extends React.Component {
+      // 在vue中有v-if和v-show这两个指令可以实现,它们的区别是v-if会使它的dom结构都不存在，而v-show只是改变了display属性。
+      constructor() {
+        super();
+        this.state = {
+          isLogin: true
+
+        }
+      }
+      render() {
+        let isDisplay = this.state.isLogin ? "block" : "none";
+        let btnText = "点击隐藏"
+        return (
+          <div>
+            <button onClick={() => { this.btnClick() }}>{btnText}</button>
+            <h2 style={{ display: isDisplay }}>哈哈哈哈</h2>
+          </div>
+        )
+      }
+      btnClick() {
+        this.setState({
+          isLogin: !this.state.isLogin
+        })
+      }
+    }
+    ReactDOM.render(<App />, document.getElementById('app'));
+  </script>
+
+</body>
+
+</html>

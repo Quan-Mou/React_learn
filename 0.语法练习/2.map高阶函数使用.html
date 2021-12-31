@@ -1,7 +1,7 @@
 <!--
  * @Description: 
  * @Date: 2021-12-04 10:38:17
- * @LastEditTime: 2021-12-04 11:33:47
+ * @LastEditTime: 2021-12-29 23:39:40
  * @FilePath: \react\0.语法练习\2.map高阶函数使用.html
 -->
 <!DOCTYPE html>
@@ -29,6 +29,23 @@
       return item + "000";
     })
     console.log(NewsArr);
+
+    // filter函数 过滤
+    /**
+     * 里面传两个参数
+     * 第一个参数是一个回调函数这个回调函数可以传三个参数（Current，index，arr）
+     * 第二个参数是传递给函数，用作 "this" 的值
+     * 
+     * */
+    let arrFilter = [309, 2, 501, 3, 22, 35, 333];
+    let ret = arrFilter.filter((item, index, arr) => {
+      return item > 50
+    })
+
+    for (var i in ret) {
+      console.log(ret);
+    }
+
   </script>
 </body>
 

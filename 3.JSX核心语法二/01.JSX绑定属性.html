@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div id="app"></div>
+  <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <script type="text/babel">
+    class App extends React.Component {
+      constructor() {
+        super();
+        this.state = {
+          title: "我是JSX语法的标题",
+          imgURL: ["https://p1.music.126.net/Rc-Gc1pjnu39iwB_v98L4w==/109951165758674021.jpg", "http://p1.music.126.net/YFaiQuJm4kxS_xwXFwx5JQ==/109951166630048662.jpg"],
+          link: "http://www.baidu.com",
+          active: false
+        }
+      }
+      getImgSize(url, size) {
+        return url + "?param=" + size + "y" + size;
+      }
+      render() {
+        const { title, imgURL, link, active } = this.state;
+        return (
+          <div>
+            {/* 1.绑定普通属性 */}
+            <h3 title="我是标题">h3元素</h3>
+            <h3 title={title}>h3元素</h3>
+            {/*这里的图片是网易云音乐上面的，假如这个展示图片的元素大小是100px*100px的，而后台传过来的图片是一张很大的图，这样就有点耗费性能和流量，所以可以看到网易云音乐获取图片后面跟了一个参数，可以指定图片的大小的  */}
+
+            {/* <img src={imgURL + "?param=100y100"} alt="" /> */}
+            {/* 每次渲染图片都要手动拼接，我们可以封装一个 */}
+            <img src={this.getImgSize(imgURL[0], 500)} alt="" />
+            <img src={this.getImgSize(imgURL[1], 80)} alt="" />
+            <a href={link} target="_blank">百度</a>
+
+            {/* 2.绑定class */}
+            {/*class是js里面的关键字*/}
+            <div className="price">我是div元素</div>
+            <div className={"price title " + (active ? "Active" : "")}>我ye是div元素</div>
+            <label htmlFor="">label里面的for也是js是关键字，要用htmlFor</label>
+            {/* 3.绑定style样式*/}
+            {/*最外层的花括号是jsx语法，里面是一个对象，以键值对的方式,有-的以驼峰命名*/}
+            <div style={{ color: "red", fontSize: "55px" }}>我是绑定了style样式</div>
+          </div>
+        )
+      }
+    }
+    ReactDOM.render(<App />, document.getElementById("app"));
+
+  </script>
+</body>
+
+</html>

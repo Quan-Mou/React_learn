@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+
+  </div>
+  <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
+  <!-- <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> -->
+
+  <script>
+    // let EleText1 = <h2>你好，未来的你</h2>;
+    let EleText2 = React.createElement("h2", null, "你好，未来的你");
+    // 这种省略jsx转换，直接以转换后的形式来写，那么就可以不用babel和type="text/babel"
+    ReactDOM.render(EleText2, document.getElementById("app"));
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="app"></div>
+    <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+
+      class App extends React.Component {
+        constructor() {
+          super();
+          this.state = {
+            message: "Hello",
+            counter: 100
+          }
+          //1.统一绑定事件
+          this.btnClick = this.btnClick.bind(this);
+        }
+        render() {
+
+          return (
+            <div>
+              {/* 1. 这种点击事件，没有this 需要手动绑定this,如果有很多个点击事件，每个点击事件都要绑定this，我们可以统一绑定this*/}
+              <button onClick={this.btnClick.bind(this)}>按钮1啊</button>
+              <button onClick={this.btnClick.bind(this)}>按钮1啊</button>
+
+              {/* 2.使用箭头函数 箭头函数给函数*/}
+              <button onClick={this.btnTowClick}>按钮2啊</button>
+
+              {/*3.定义箭头函数，箭头函数里面在调用执行的函数*/}
+              <button onClick={() => { this.btnThreeClick() }}>按钮3啊</button>
+              <div>{this.state.counter}</div>
+            </div>
+          )
+        }
+        // 1. 隐式绑定
+        btnClick() {
+          console.log(this);
+        }
+
+        // 2. 箭头函数
+        btnTowClick = () => {
+          //箭头函数的方式，因为箭头函数里面是没有this的，它会一层一层往上找
+          console.log(this);
+        }
+
+        // 3. 箭头函数里面调用函数
+        btnThreeClick() {
+          this.setState({
+            counter: this.state.counter - 1
+          })
+        }
+
+      }
+
+      ReactDOM.render(<App />, document.getElementById("app"));
+    </script>
+  </body>
+
+  </html>

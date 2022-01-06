@@ -1,0 +1,21 @@
+.tab_container {
+  display: flex;
+  height: 44px;
+  line-height: 44px;
+}
+
+.tab_container .item {
+  flex: 1;
+  text-align: center;
+}
+.tab_container .item.active {
+  color: red;
+}
+
+.tab_container .item.active span {
+  display: block;
+  width: 50%;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  border-bottom: 3px solid red;
+}

@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.Container {
+  display: flex;
+  text-align: center;
+  height: 44px;
+  line-height: 44px;
+  color: beige;
+}
+.leftSlot,
+.rightSlot {
+  width: 80px;
+}
+.leftSlot {
+  background-color: green;
+}
+.rightSlot {
+  background-color: blue;
+}
+.centerSlot {
+  flex: 1;
+  background-color: pink;
+}

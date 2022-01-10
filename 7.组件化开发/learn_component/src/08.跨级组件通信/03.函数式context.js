@@ -56,14 +56,15 @@ export default class App extends Component {
     super();
     this.state = {
       nickName: "权爷",
-      grade: 100
+      grade: 100,
+
     }
   }
   render() {
     return (
       <div>
         <UserInfo.Provider value={this.state}>
-          <Theme.Provider value={{ color: "red" }}>
+          <Theme.Provider value={{ color: "red" }}>f
             <ProFile />
           </Theme.Provider>
         </UserInfo.Provider>

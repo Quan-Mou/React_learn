@@ -12,6 +12,11 @@ import ReactDOM from "react-dom"
 // import App from './07.react实现slot/02.父传子的方式'
 // import App from './08.跨级组件通信/01.props逐层传递'
 // import App from "./08.跨级组件通信/02.context"
-import App from "./08.跨级组件通信/03.函数式context"
+// import App from "./08.跨级组件通信/03.函数式context"
+
+// import App from "./09.setState/01.setState"
+// import App from './09.setState/02.setState是异步的'
+// import App from './09.setState/03.setState是同步的'
+import App from './09.setState/05.setState本身的合并'
 
 ReactDOM.render(<App />, document.getElementById("root"));

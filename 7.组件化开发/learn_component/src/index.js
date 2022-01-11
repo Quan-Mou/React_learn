@@ -17,6 +17,13 @@ import ReactDOM from "react-dom"
 // import App from "./09.setState/01.setState"
 // import App from './09.setState/02.setState是异步的'
 // import App from './09.setState/03.setState是同步的'
-import App from './09.setState/05.setState本身的合并'
+// import App from './09.setState/05.setState本身的合并'
+
+// import App from "./10.性能优化/01.keys"
+// import App from "./10.性能优化/02.render方法"
+// import App from "./10.性能优化/03.shouldComponentUpdate"
+// import App from "./10.性能优化/04.PureComponent"
+import App from "./10.性能优化/05.meom"
+
 
 ReactDOM.render(<App />, document.getElementById("root"));

@@ -1,6 +1,5 @@
 import React, { Component, memo, PureComponent } from 'react'
 
-
 const MemoHeader = memo(
   function Header() {
     console.log("Header调用了render方法");
@@ -12,8 +11,6 @@ const MemoHeader = memo(
   }
 )
 
-
-
 function ProductList() {
   return (
     <ul>
@@ -23,9 +20,6 @@ function ProductList() {
     </ul>
   )
 }
-
-
-
 
 const MemoMain = memo(
   function Main() {

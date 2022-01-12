@@ -23,7 +23,16 @@ import ReactDOM from "react-dom"
 // import App from "./10.性能优化/02.render方法"
 // import App from "./10.性能优化/03.shouldComponentUpdate"
 // import App from "./10.性能优化/04.PureComponent"
-import App from "./10.性能优化/05.meom"
+// import App from "./10.性能优化/05.meom"
+
+// import App from "./11.知识点补充/01.state不可变的力量"
+// import App from "./11.知识点补充/02.全局事件传递"
+
+
+import App from "./12.受控和非受控组件/01.ref的使用"
+
+
+
 
 
 ReactDOM.render(<App />, document.getElementById("root"));

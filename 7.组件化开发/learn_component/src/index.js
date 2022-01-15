@@ -29,10 +29,24 @@ import ReactDOM from "react-dom"
 // import App from "./11.知识点补充/02.全局事件传递"
 
 
-import App from "./12.受控和非受控组件/01.ref的使用"
+// import App from "./12.受控和非受控组件/01.ref的使用"
+// import App from "./12.受控和非受控组件/02.受控组件"
+// import App from "./12.受控和非受控组件/03.受控组件-Select使用"
+// import App from "./12.受控和非受控组件/04.受控组件-多输入.js"
+// import App from "./12.受控和非受控组件/05.非受控组件"
+
+// import App from "./13.高阶组件/01.高阶组件的定义"
+// import App from "./13.高阶组件/02.高阶组件应用-增强props"
+// import App from "./13.高阶组件/03.高阶组件应用-增强props默认"
+// import App from "./13.高阶组件/04.高阶组件应用-增强props改进"
+// import App from "./13.高阶组件/05.登录鉴权操作"
+// import App from "./13.高阶组件/06.高阶组件应用-生命周期劫持"
+// import App from "./13.高阶组件/07.高阶组件应用-生命周期劫持增强"
+
+// import App from "./14.组件内容补充/01.ref转发"
+import App from "./14.组件内容补充/02.Portals的使用"
 
 
 
 
-
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<App name="Quan某人" />, document.getElementById("root"));

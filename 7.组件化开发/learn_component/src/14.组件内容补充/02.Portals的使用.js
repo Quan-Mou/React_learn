@@ -22,7 +22,6 @@ export default class App extends PureComponent {
         <Modal>
           <h1>TitleCenter</h1>
         </Modal>
-
       </div>
     )
   }

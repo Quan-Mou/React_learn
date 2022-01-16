@@ -1,0 +1,20 @@
+.home {
+  color: blue;
+}
+
+.title {
+  border: 1px solid black;
+  display: flex;
+  list-style: none;
+}
+
+.title li {
+  margin-left: 20px;
+  color: brown;
+}
+.title li:first-child {
+  color: green;
+}
+.title li:last-child {
+  color: aqua;
+}

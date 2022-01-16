@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    // 1.模板字符串的基本使用
+    let demo = "quan"
+    let aVar2 = `this is name ${demo}`;
+    console.log(aVar2);
+
+    // 2.
+    function foo(...arg) {
+      console.log(arg);
+    }
+
+    // foo(aVar2);
+    // foo``;
+    foo`this is name ${demo}`;
+
+    foo`
+      font-size: 15px;
+      color: red;
+    `
+  </script>
+</body>
+
+</html>

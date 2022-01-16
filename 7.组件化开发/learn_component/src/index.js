@@ -44,7 +44,9 @@ import ReactDOM from "react-dom"
 // import App from "./13.高阶组件/07.高阶组件应用-生命周期劫持增强"
 
 // import App from "./14.组件内容补充/01.ref转发"
-import App from "./14.组件内容补充/02.Portals的使用"
+// import App from "./14.组件内容补充/02.Portals的使用"
+// import App from "./14.组件内容补充/03.fragment的使用"
+import App from "./14.组件内容补充/04.StrictMode"
 
 
 

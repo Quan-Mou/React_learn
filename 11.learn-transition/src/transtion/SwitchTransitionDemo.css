@@ -1,0 +1,16 @@
+.my_btn-enter {
+  opacity: 0;
+}
+.my_btn-enter-active {
+  opacity: 1;
+  transition: opacity 2000ms;
+}
+
+.my_btn-exit {
+  opacity: 1;
+}
+
+.my_btn-exit-active {
+  opacity: 0;
+  transition: opacity 2000ms;
+}

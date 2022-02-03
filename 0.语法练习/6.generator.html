@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 1.普通函数
+    // function gen() {
+
+    // }
+    // gen();
+
+
+    // 2.生成器函数  它返回的是一个generator对象
+    // function* gen() {
+    //   console.log('111');
+    //   yield 1;
+    //   console.log('222');
+    //   yield 2;
+    //   console.log('333');
+    //   yield 3;
+    //   console.log('444');
+    // }
+
+    // let ret = gen(); // 调用一个生成器函数并不会直接返回结果，而是返回一个生成器对象我们称为iterator（迭代器）
+    // console.log(ret.next());
+    // // 3.调用一次next，就会消耗一次迭代器，同时它返回一个对象里面包含value和done（value的值就是当前的返回值，done是一个布尔值表示是否执行完毕）
+    // console.log(ret.next());
+    // console.log(ret.next());
+    // console.log(ret.next());
+
+    // 4.生成器函数中代码的执行顺序
+
+    // 5.练习：定义一个生成器函数，依次可以生成1-10的数字
+    // function* generatorNumber() {
+    //   for (let i = 1; i <= 10; i++) {
+    //     yield i;
+    //   }
+    // }
+    // let ret = generatorNumber();
+    // console.log(ret.next().value);
+    // console.log(ret.next().value);
+    // console.log(ret.next().value); //....
+
+    // 6.generator和promise一起使用
+    function* foo() {
+      // console.log('a');
+      const ret = yield new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve("Hello Promise");
+        }, 3000);
+      })
+      console.log(ret);
+    }
+    let ret = foo();
+    ret.next().value.then(ret => {
+      console.log(ret);
+    }) // 这里value值既然是个promise那么就可以调用它的then方法
+
+
+  </script>
+</body>
+
+</html>

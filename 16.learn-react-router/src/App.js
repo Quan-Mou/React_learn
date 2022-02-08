@@ -1,5 +1,9 @@
 import React, { PureComponent } from 'react';
 import { Route, Link, BrowserRouter, NavLink, Switch, withRouter } from "react-router-dom"
+
+import { renderRoutes } from "react-router-config"
+// import { renderRoutes } from 'react-router-config';
+
 import About from './pages/About';
 import Home from './pages/Home';
 import Profile from "./pages/Profile"
@@ -10,6 +14,10 @@ import User from './pages/User';
 import Login from './pages/Login';
 import Product from './pages/Product';
 import Detail from './pages/Detail';
+import Detail2 from './pages/Detail2';
+import Detail3 from './pages/Detail3';
+
+import routes from "../src/router"
 
 class App extends PureComponent {
   render() {
@@ -41,6 +49,9 @@ class App extends PureComponent {
         {/* 7.动态路由 */}
         {/* 1.动态路由的方式 */}
         <NavLink to={`/detail/${id}`} activeClassName="active-link">详情</NavLink>
+        {/* 2.search */}
+        <NavLink to={`/detail2?name=权&age=17&width=1.88`} activeClassName="active-link">详情2</NavLink>
+        <NavLink to={{ pathname: "/detail3", search: "?name=权&age=17&width=1.88" }} activeClassName="active-link">详情2</NavLink>
 
 
         {/*动态路由 /:user*/}
@@ -56,7 +67,7 @@ class App extends PureComponent {
 
 
         {/* 5. Redirect   嵌套路由 */}
-        <Switch>
+        {/* <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/about" component={About} />
           <Route path="/profile" component={Profile} />
@@ -64,8 +75,13 @@ class App extends PureComponent {
           <Route path="/login" component={Login} />
           <Route path="/product" component={Product} />
           <Route path="/detail/:id" component={Detail} />
+          <Route path="/detail2" component={Detail2} />
+          <Route path="/detail3" component={Detail3} />
           <Route exact component={NoMatch} />
-        </Switch>
+        </Switch> */}
+
+        {/* 使用react-router-config */}
+        {renderRoutes(routes)}
       </div>
     );
   }

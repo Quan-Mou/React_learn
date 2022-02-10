@@ -13,12 +13,16 @@
   <script>
 
 
-    const F4 = ['路飞', '卡二', '罗', '索隆'];
-    let [lu, ka, luo, suo] = F4;
-    console.log(lu);
-    console.log(ka);
-    console.log(luo);
-    console.log(suo);
+    function foo1() {
+
+      function foo2() {
+        var a = 10;
+        return a;
+      }
+      return foo2();
+      // console.log(a);
+    }
+    console.log(foo1())
   </script>
 </body>
 
